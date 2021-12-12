@@ -1,0 +1,45 @@
+external interface Serializable {}
+
+namespace model;
+
+class ChirpSystem {
+
+
+ depend java.io.Serializable;
+  isA Serializable;
+   private static final long serialVersionUID = 21203601L;
+
+ 1 <@>- * User; 
+  1 <@>- * Post;
+  
+}
+
+class User {
+
+ depend java.io.Serializable;
+  isA Serializable;
+   private static final long serialVersionUID = 2645995L;
+
+  autounique id;
+  unique String email;
+  String passwordHash;
+  String firstName;
+  String lastName;
+  Boolean isAdmin;
+  
+  1 posters -- * Post postedPosts;
+  * likers -- * Post likedPosts;
+}
+
+class Post {
+
+ depend java.io.Serializable;
+  isA Serializable;
+   private static final long serialVersionUID = 2493632L;
+
+ autounique id;
+  String content;
+  Date date;
+  Time time;
+  
+}
