@@ -15,7 +15,6 @@ public class User implements Serializable
   // STATIC VARIABLES
   //------------------------
 
-  private static int nextId = 1;
   private static Map<String, User> usersByEmail = new HashMap<String, User>();
 
   //------------------------
@@ -28,9 +27,6 @@ public class User implements Serializable
   private String firstName;
   private String lastName;
   private boolean isAdmin;
-
-  //Autounique Attributes
-  private int id;
 
   //User Associations
   private List<Post> postedPosts;
@@ -47,7 +43,6 @@ public class User implements Serializable
     firstName = aFirstName;
     lastName = aLastName;
     isAdmin = aIsAdmin;
-    id = nextId++;
     if (!setEmail(aEmail))
     {
       throw new RuntimeException("Cannot create due to duplicate email. See http://manual.umple.org?RE003ViolationofUniqueness.html");
@@ -149,11 +144,6 @@ public class User implements Serializable
   public boolean getIsAdmin()
   {
     return isAdmin;
-  }
-
-  public int getId()
-  {
-    return id;
   }
   /* Code from template attribute_IsBoolean */
   public boolean isIsAdmin()
@@ -425,7 +415,6 @@ public class User implements Serializable
   public String toString()
   {
     return super.toString() + "["+
-            "id" + ":" + getId()+ "," +
             "email" + ":" + getEmail()+ "," +
             "passwordHash" + ":" + getPasswordHash()+ "," +
             "firstName" + ":" + getFirstName()+ "," +

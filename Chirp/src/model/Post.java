@@ -12,12 +12,6 @@ public class Post implements Serializable
 {
 
   //------------------------
-  // STATIC VARIABLES
-  //------------------------
-
-  private static int nextId = 1;
-
-  //------------------------
   // MEMBER VARIABLES
   //------------------------
 
@@ -25,9 +19,6 @@ public class Post implements Serializable
   private String content;
   private Date date;
   private Time time;
-
-  //Autounique Attributes
-  private int id;
 
   //Post Associations
   private ChirpSystem chirpSystem;
@@ -43,7 +34,6 @@ public class Post implements Serializable
     content = aContent;
     date = aDate;
     time = aTime;
-    id = nextId++;
     boolean didAddChirpSystem = setChirpSystem(aChirpSystem);
     if (!didAddChirpSystem)
     {
@@ -98,11 +88,6 @@ public class Post implements Serializable
   public Time getTime()
   {
     return time;
-  }
-
-  public int getId()
-  {
-    return id;
   }
   /* Code from template association_GetOne */
   public ChirpSystem getChirpSystem()
@@ -291,7 +276,6 @@ public class Post implements Serializable
   public String toString()
   {
     return super.toString() + "["+
-            "id" + ":" + getId()+ "," +
             "content" + ":" + getContent()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "date" + "=" + (getDate() != null ? !getDate().equals(this)  ? getDate().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
             "  " + "time" + "=" + (getTime() != null ? !getTime().equals(this)  ? getTime().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +

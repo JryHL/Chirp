@@ -20,7 +20,7 @@ class User {
   isA Serializable;
    private static final long serialVersionUID = 2645995L;
 
-  autounique id;
+
   unique String email;
   String passwordHash;
   String firstName;
@@ -37,7 +37,7 @@ class Post {
   isA Serializable;
    private static final long serialVersionUID = 2493632L;
 
- autounique id;
+
   String content;
   Date date;
   Time time;
